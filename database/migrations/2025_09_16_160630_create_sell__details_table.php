@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('sell__details', function (Blueprint $table) {
             $table->id();
+            $table->integer('cantidad');
+            $table->decimal('price_unit',10,2);
+            $table->decimal('subtotal',10,2);
             $table->timestamps();
         });
     }

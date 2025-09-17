@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('sells', function (Blueprint $table) {
             $table->id();
+            $table->date('fecha_venta');
+            $table->decimal('total',10,2);
             $table->timestamps();
         });
     }
