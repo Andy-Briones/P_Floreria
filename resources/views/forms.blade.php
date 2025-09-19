@@ -38,8 +38,28 @@
         </div>
         <div class="col-md-6">
             <label for="stock" class="form-label">Stock</label>
-            <input type="number" name="stock" id="stock" class="form-control">
+            <input type="number" name="stock" id="stock" class="form-control"
             value="{{ isset($product->stock) ? $product->stock : '' }}">
+        </div>
+        <div class="col-md-6">
+            <label for="product_category_id" class="form-label">Categoria</label>
+            <select name="product_category_id" id="product_category_id" class="form-select">
+                @foreach($categorys as $category)
+                <option value="{{ $category->id }}" {{ isset($product->product_category_id) && $product->product_category_id == $category->id ? 'selected' : '' }}>
+                    {{ $category->name }}
+                </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="supplier_id" class="form-label">Proveedor</label>
+            <select name="supplier_id" id="supplier_id" class="form-select">
+                @foreach($suppliers as $supplier)
+                <option value="{{ $supplier->id }}" {{ isset($product->supplier_id) && $product->supplier_id == $supplier->id ? 'selected' : '' }}>
+                    {{ $supplier->contactoName }}
+                </option>
+                @endforeach
+            </select>
         </div>
     </div>
 @endif

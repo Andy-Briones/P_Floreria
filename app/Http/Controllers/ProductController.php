@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product_Category;
+use App\Models\Supplier;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,14 @@ class ProductController extends Controller
     }
     public function create()
     {
-        return view('productsGeneral.products.create');
+        $categorys = Product_Category::all();   // todas las categorías
+        $suppliers = Supplier::all();   // todos los proveedores
+
+        return view('productsGeneral.products.create', [
+            'Modo' => 'crearP',
+            'categorys' => $categorys,
+            'suppliers' => $suppliers
+        ]);
     }
     public function store(Request $request)
     {
@@ -30,7 +39,15 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return view('productsGeneral.products.edit', compact('product'));
+        $categorys = Product_Category::all();   // categorías
+        $suppliers = Supplier::all();           // proveedores
+        
+        return view('productsGeneral.products.edit', [
+        'product' => $product,
+        'categorys' => $categorys,
+        'suppliers' => $suppliers,
+        'Modo' => 'editarP'
+        ]);
     }
     public function update(Request $request, $id)
     {
