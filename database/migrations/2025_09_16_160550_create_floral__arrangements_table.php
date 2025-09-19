@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('buys', function (Blueprint $table) {
+        Schema::create('floral__arrangements', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha_compra');
-            $table->decimal('total',10,2);
+            $table->string('name');
+            $table->string('description');
+            $table->decimal('price',10,2);
+            $table->foreignId('plant_category_id')->constrained('plant__categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('buys');
+        Schema::dropIfExists('floral__arrangements');
     }
 };

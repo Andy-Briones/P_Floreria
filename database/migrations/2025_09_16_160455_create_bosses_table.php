@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('people', function (Blueprint $table) {
+        Schema::create('bosses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('fSurname');
@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('correo');
             $table->date('fecha_nacimiento');
             $table->boolean('genero');
+            $table->date('fecha_contratacion');
+            $table->foreignId('administrator_id')->constrained('administrators')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('people');
+        Schema::dropIfExists('bosses');
     }
 };
