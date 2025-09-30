@@ -86,3 +86,27 @@
         </div>
     </div>
 @endif
+
+
+{{-- Ventas --}}
+@if($Modo == 'crearV' || $Modo == 'editarV')
+    <h3>{{ $Modo == 'crearV' ? 'Agregar Venta' : 'Modificar Venta' }}</h3>
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label for="contacotName" class="form-label">Nombre del Proveedor</label>
+            <input type="text" name="contactoName" id="contactoName" class="form-control"
+                value="{{ isset($supplier->contactName) ? $supplier->contactName : '' }}">
+        </div>
+        <div class="col-md-6">
+            <label for="nameEmpresa" class="form-label">Nombre de Empresa </label>
+            <input type="text" name="nameEmpresa" id="nameEmpresa" class="form-control"
+                value="{{ isset($supplier->nameEmpresa) ? $supplier->nameEmpresa : '' }}">
+        </div>
+        <div class="col-md-6">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" name="direccion" id="direccion" class="form-control"
+                value="{{ isset($supplier->direccion) ? $supplier->direccion : '' }}">
+        </div>
+    </div>
+@endif

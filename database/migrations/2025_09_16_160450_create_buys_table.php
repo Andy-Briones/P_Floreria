@@ -16,7 +16,6 @@ return new class extends Migration
             $table->date('fecha_compra');
             $table->decimal('total',10,2);
             $table->foreignId('supplier_id')->constrained('suppliers')->onDelete('cascade');
-            $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
             $table->timestamps();
         });
     }
