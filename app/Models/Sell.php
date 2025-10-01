@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Sell extends Model
 {
     //
+    protected $table = 'alssells';
+
     public function product()
     {
         return $this->belongsTo(Product::class);

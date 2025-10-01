@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $table = 'alsproducts';
+    
     //relacion inversa
     public function product_category()
     {
@@ -18,5 +20,9 @@ class Product extends Model
     public function sell()
     {
         return $this->hasMany(Sell::class);
+    }
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }
