@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     //
-    protected $table = 'alsordes';
+    protected $table = 'alsorders';
 
     public function user()
     {

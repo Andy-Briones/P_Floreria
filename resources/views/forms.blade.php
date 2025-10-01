@@ -177,33 +177,60 @@
         <div class="col-md-6">
             <label for="name" class="form-label">Nombre del Usuario</label>
             <input type="text" name="name" id="name" class="form-control"
-                value="{{ isset($product->name) ? $product->name : '' }}">
+                value="{{ isset($user->name) ? $user->name : '' }}">
         </div>
         <div class="col-md-6">
-            <label for="description" class="form-label">Descripcion </label>
-            <input type="text" name="description" id="description" class="form-control"
-                value="{{ isset($product->description) ? $product->description : '' }}">
+            <label for="email" class="form-label">Correo </label>
+            <input type="email" name="email" id="email" class="form-control"
+                value="{{ isset($user->email) ? $user->email : '' }}">
         </div>
         <div class="col-md-6">
-            <label for="price" class="form-label">Precio</label>
-            <input type="number" step="0.01" name="price" id="price" class="form-control"
-                value="{{ isset($product->price) ? $product->price : '' }}">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" name="password" id="password" class="form-control"
+                value="{{ isset($user->password) ? $user->password : '' }}">
         </div>
+        {{--  <div class="col-md-6">
+            <label for="password" class="form-label">Confirmar Contraseña</label>
+            <input type="password" name="password" id="password" class="form-control"
+                value="{{ isset($user->password) ? $user->password : '' }}">
+        </div>  --}}
         <div class="col-md-6">
-            <label for="stock" class="form-label">Stock</label>
-            <input type="number" name="stock" id="stock" class="form-control"
-                value="{{ isset($product->stock) ? $product->stock : '' }}">
-        </div>
-        <div class="col-md-6">
-            <label for="supplier_id" class="form-label">Cliente</label>
-            <select name="supplier_id" id="supplier_id" class="form-select">
-                @foreach($suppliers as $supplier)
-                    <option value="{{ $supplier->id }}" {{ isset($product->supplier_id) && $product->supplier_id == $supplier->id ? 'selected' : '' }}>
-                        {{ $supplier->contactoName }}
+            <label for="client_id" class="form-label">Cliente</label>
+            <select name="client_id" id="client_id" class="form-select">
+                @foreach($cli as $clien)
+                    <option value="{{ $clien->id }}" {{ isset($user->clien_id) && $user->clien_id == $clien->id ? 'selected' : '' }}>
+                        {{ $clien->name }}
                     </option>
                 @endforeach
             </select>
         </div>
     </div>
 @endif
-//nombre. correo, contraseña, cliente
+
+{{-- Pedido --}}
+@if($Modo == 'crearPedido' || $Modo == 'editarPedido')
+    <h3>{{ $Modo == 'crearPedido' ? 'Agregar Pedido' : 'Modificar Pedido' }}</h3>
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label for="user_id" class="form-label">Usuario</label>
+            <select name="user_id" id="user_id" class="form-select">
+                @foreach($usuario as $usu)
+                    <option value="{{ $usu->id }}" {{ isset($order->usu_id) && $order->usu_id == $usu->id ? 'selected' : '' }}>
+                        {{ $usu->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="product_id" class="form-label">Producto</label>
+            <select name="product_id" id="product_id" class="form-select">
+                @foreach($productos as $prod)
+                    <option value="{{ $prod->id }}" {{ isset($order->prod_id) && $order->prod_id == $prod->id ? 'selected' : '' }}>
+                        {{ $prod->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+@endif

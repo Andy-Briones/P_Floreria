@@ -16,11 +16,11 @@ class UserController extends Controller
     }
     public function create()
     {
-        $clien = Client::all();   // todas las categorías
+        $cli = Client::all();   // todas las categorías
 
         return view('people.userss.create', [
             'Modo' => 'crearUser',
-            'clien' => $clien
+            'cli' => $cli
         ]);
     }
     public function store(Request $request)
@@ -40,7 +40,7 @@ class UserController extends Controller
         
         return view('people.userss.edit', [
         'user' => $user,
-        'client' => $cli,
+        'cli' => $cli,
         'Modo' => 'editarUser'
         ]);
     }
