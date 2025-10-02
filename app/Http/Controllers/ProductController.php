@@ -29,6 +29,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = request()->except('_token');
+        $request->validate([
+            'name'        => 'required|string|max:255',
+            'price'       => 'required|numeric|min:0',
+            'stock'       => 'required|integer|min:0',
+        ]);
         Product::insert($product);
         return redirect('products');//->with('mensaje', 'Categoría agregada con éxito');
     }

@@ -3,7 +3,8 @@
         @csrf
         @include('forms', ['Modo' => 'crearCli'])
         <div class="text-center mt-4">
-            <button type="submit" class="btn btn-success me-2">Agregar</button>
+            <button type="submit" class="btn btn-primary me-2">💾 Guardar</button>
+            <a href="{{ url()->previous() }}" class="btn btn-outline-secondary">⬅️ Cancelar</a>
         </div>
     </form>
 </div>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Sell;
+
 use Illuminate\Http\Request;
 
 class SellController extends Controller
@@ -15,11 +17,21 @@ class SellController extends Controller
     }
     public function create()
     {
-        return view('sells.create');
+        $produc = Product::all();   // todos los productos
+        return view('sells.create', [
+            'Modo' => 'crearV',
+            'produc' => $produc
+        ]);
     }
     public function store(Request $request)
     {
         $venta = request()->except('_token');
+        $request->validate([
+            'product_id'  => 'required|exists:alsproducts,id',
+            'cantidad'    => 'required|integer|min:1',
+            'fecha_venta' => 'required|date',
+            'total'       => 'required|numeric|min:0',
+        ]);
         Sell::insert($venta);
         return redirect('sells');//->with('mensaje', 'Categoría agregada con éxito');
     }
@@ -30,7 +42,12 @@ class SellController extends Controller
     public function edit($id)
     {
         $venta = Sell::findOrFail($id);
-        return view('sells.edit', compact('sell'));
+        $produc = Product::all();   // productos
+        return view('sells.edit', [
+            'venta' => $venta,
+            'produc' => $produc,
+            'Modo' => 'editarV'
+        ]);
     }
     public function update(Request $request, $id)
     {
