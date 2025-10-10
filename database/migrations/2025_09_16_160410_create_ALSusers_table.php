@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('alsusers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('fSurname');
+            $table->string('sSurname');
+            $table->string('telefono', length:9);
+            $table->date('fecha_nacimiento');
+            $table->string('direccion');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('client_id')->nullable()->constrained('alsclients')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

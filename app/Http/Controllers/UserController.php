@@ -16,12 +16,7 @@ class UserController extends Controller
     }
     public function create()
     {
-        $cli = Client::all();   // todas las categorías
-
-        return view('people.userss.create', [
-            'Modo' => 'crearUser',
-            'cli' => $cli
-        ]);
+        return view('people.userss.create');
     }
     public function store(Request $request)
     {
@@ -35,14 +30,8 @@ class UserController extends Controller
     }
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-        $cli = Client::all();   // cliente
-        
-        return view('people.userss.edit', [
-        'user' => $user,
-        'cli' => $cli,
-        'Modo' => 'editarUser'
-        ]);
+        $us = User::findOrFail($id);
+        return view('people.userss.edit', compact('user'));
     }
     public function update(Request $request, $id)
     {

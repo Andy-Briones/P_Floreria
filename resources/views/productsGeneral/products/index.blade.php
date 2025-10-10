@@ -15,6 +15,7 @@
         <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
             <h4 class="mb-0">📋 Lista de Productos</h4>
             <a href="{{ route('products.create') }}" class="btn btn-light">➕ Nuevo Producto</a>
+            <a href="{{url('/')}}" class="btn btn-light">Regresar</a>
         </div>
         <div class="card-body">
             @if(session('mensaje'))
