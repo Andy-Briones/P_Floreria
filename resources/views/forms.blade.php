@@ -325,13 +325,13 @@
           <a class="nav-link" href="{{url('/products')}}">Catálogo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pedido</a>
+          <a class="nav-link" href="{{ route('orders.create') }}">Pedido</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('contactanos')}}">Contacto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Sobre Nosotros</a>
+          <a class="nav-link" href="{{url('/nosotros') }}">Sobre Nosotros</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Iniciar Sesion</a>
@@ -359,7 +359,7 @@
           <a class="nav-link" href="{{url('/products')}}">Producto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pedido</a>
+          <a class="nav-link" href="{{ url('/orders') }}">Pedido</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('contactanos')}}">Contacto</a>

@@ -22,9 +22,10 @@ class ProductController extends Controller
 
         $products = $query->paginate(5);
 
-        return view('productsGeneral.products.index', compact('products'));
+        return view('productsGeneral.products.vistauser.secindex', compact('products'));
     }
     // 'productsGeneral.products.vistauser.secindex'
+    // 'productsGeneral.products.index'
 
     public function create()
     {

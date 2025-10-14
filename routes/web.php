@@ -23,3 +23,6 @@ Route::resource('orders', OrderController::class);
 Route::get('/contactanos', function () {
     return view('vistasextras.contactanos');
 })->name('contactanos');
+Route::get('/nosotros', function () {
+    return view('vistasextras.sobrenoso');
+})->name('nosotros');
