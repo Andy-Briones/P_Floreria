@@ -1,7 +1,6 @@
 
 
     {{-- Tu CSS personalizado --}}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

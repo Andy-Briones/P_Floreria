@@ -1,4 +1,4 @@
-<!-- Archivo: sobre.html -->
+@vite(['resources/css/nosotros.css', 'resources/js/app.js'])<!-- Archivo: sobre.html -->
 <!doctype html>
 <html lang="es">
 
@@ -9,81 +9,6 @@
     <div>
         @include('forms', ['Modo' => 'Encabezado'])
     </div>
-    <style>
-        :root {
-            --accent: #2b8aef;
-            --muted: #65748b;
-            --bg: #f6f8fa
-        }
-
-        * {
-            box-sizing: border-box
-        }
-
-        body {
-            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            margin: 0;
-            color: #0f1724;
-            background: var(--bg);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1rem
-        }
-
-        header {
-            background: #fff;
-            border-bottom: 1px solid #e6eef8;
-            padding: 1rem
-        }
-
-        .brand {
-            display: flex;
-            gap: .6rem;
-            align-items: center;
-            font-weight: 700
-        }
-
-        .logo {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--accent), #0ea5a4);
-            display: inline-block
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 1.25rem;
-            box-shadow: 0 6px 18px rgba(11, 22, 40, .04)
-        }
-
-        h1 {
-            margin: .2rem 0 0;
-            font-size: 1.6rem
-        }
-
-        p.lead {
-            color: var(--muted);
-            margin: .6rem 0 1rem
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 1rem
-        }
-
-        @media (max-width:760px) {
-            .grid {
-                grid-template-columns: 1fr
-            }
-        }
-    </style>
 </head>
 
 <body>

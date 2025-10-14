@@ -1,0 +1,138 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+/* sobre.css - Estilo para la vista "Sobre Nosotros" de Florería Alessa 🌸 */
+:root {
+    --primary: #d16ba5;
+    --secondary: #86a8e7;
+    --accent: #f7cac9;
+    --background: #fffafc;
+    --text: #333;
+    --muted: #777;
+    --radius: 10px;
+    --shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+header {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+}
+
+header .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #fff, rgba(255, 255, 255, 0.6));
+    border-radius: 50%;
+}
+
+/* Card principal */
+.card {
+    max-width: 950px;
+    background: white;
+    margin: 3rem auto;
+    padding: 2rem 3rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Títulos y texto */
+h1, h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.grid h3 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+/* Mapa */
+iframe {
+    display: block;
+    width: 100%;
+    max-width: 950px;
+    height: 400px;
+    margin: 2rem auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+iframe:hover {
+    transform: scale(1.01);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white !important;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card {
+        padding: 1.5rem;
+    }
+
+    iframe {
+        height: 300px;
+    }
+}
