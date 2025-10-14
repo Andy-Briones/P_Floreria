@@ -1,7 +1,6 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     {{-- Tu CSS personalizado --}}
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{--  @vite(['resources/css/catalogo.css', 'resources/js/app.js'])  --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <div>
-        @include('forms', ['Modo' => 'EncabezadoAdmin'])
+        @include('forms', ['Modo' => 'Encabezado'])
     </div>
 </head>
 <body>
-<div class="container mt-4">
-    <div class="card shadow border-0">
-        <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-            <h4 class="mb-0">📋 Lista de Productos</h4>
-            <a href="{{ route('products.create') }}" class="btn btn-light">➕ Nuevo Producto</a>
-            <a href="{{url('/')}}" class="btn btn-light">Regresar</a>
-        </div>
-        <div class="card-body">
+    <br>
+    <div>
+        <input type="text" name="search" class="form-control me-2" placeholder="Buscar Producto" value="{{ request('search') }}">
+    </div>
+    <div class="card-body">
             @if(session('mensaje'))
                 <div class="alert alert-success">{{ session('mensaje') }}</div>
             @endif
@@ -77,8 +73,5 @@
                 {{ $products->links() }}
             </div>
         </div>
-    </div>
-</div>
-
 </body>
 </html>

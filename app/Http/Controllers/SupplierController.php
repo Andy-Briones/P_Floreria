@@ -21,7 +21,7 @@ class SupplierController extends Controller
     {
         $supplier = request()->except('_token');
         Supplier::insert($supplier);
-        return redirect('suppliers');//->with('mensaje', 'Categoría agregada con éxito');
+        return response()->json(['success' => true]);//->with('mensaje', 'Categoría agregada con éxito');
     }
     public function show()
     {

@@ -10,11 +10,22 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $product['products'] = Product::paginate(5);
-        return view('productsGeneral.products.index', $product);
+        // Cargar relaciones correctas (por ejemplo: categories y supplier)
+        $query = Product::with(['categories', 'supplier']);
+
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where('name', 'like', "%{$search}%");
+        }
+
+        $products = $query->paginate(5);
+
+        return view('productsGeneral.products.index', compact('products'));
     }
+    // 'productsGeneral.products.vistauser.secindex'
+
     public function create()
     {
         $categorys = Product_Category::all();   // todas las categorías
@@ -48,7 +59,7 @@ class ProductController extends Controller
         $suppliers = Supplier::all();           // proveedores
         
         return view('productsGeneral.products.edit', [
-        'product' => $product,
+        'products' => $product,
         'categorys' => $categorys,
         'suppliers' => $suppliers,
         'Modo' => 'editarP'

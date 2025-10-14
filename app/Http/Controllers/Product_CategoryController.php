@@ -19,9 +19,9 @@ class Product_CategoryController extends Controller
     }
     public function store(Request $request)
     {
-        $category = request()->except('_token');
+        $category = $request->except('_token');
         Product_Category::insert($category);
-        return redirect('product_categories');//->with('mensaje', 'Categoría agregada con éxito');
+        return response()->json(['success' => true]);//->with('mensaje', 'Categoría agregada con éxito');
     }
     public function show()
     {
