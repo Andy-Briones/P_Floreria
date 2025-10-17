@@ -310,7 +310,6 @@
 
 
 {{--  Cliente  --}}
-@vite(['resources/css/clientview.css', 'resources/js/app.js'])
 @if ($Modo == 'Encabezado')
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
