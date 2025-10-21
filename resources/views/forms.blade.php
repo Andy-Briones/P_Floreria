@@ -1,8 +1,3 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    {{-- Tu CSS personalizado --}}
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
 {{-- Categoria --}}
 @if($Modo == 'crearPRC' || $Modo == 'editarPRC')
 <div class="card shadow mb-4 border-0">
