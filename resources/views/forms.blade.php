@@ -1,7 +1,3 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    {{-- Tu CSS personalizado --}}
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 {{-- Categoria --}}
 @if($Modo == 'crearPRC' || $Modo == 'editarPRC')
@@ -310,7 +306,7 @@
 
 
 {{--  Cliente  --}}
-@vite(['resources/css/clientview.css', 'resources/js/app.js'])
+{{--  @vite(['resources/css/clientview.css', 'resources/js/app.js'])  --}}
 @if ($Modo == 'Encabezado')
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">

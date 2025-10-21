@@ -6,12 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
-    <div>
-        @include('forms', ['Modo' => 'Encabezado'])
-    </div>
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    
 </head>
 
 <body>
+    @include('forms', ['Modo' => 'Encabezado'])
     <!-- Archivo: contacto.html -->
     <section class="card">
         <h1>Contáctanos</h1>
@@ -88,6 +91,8 @@
             e.target.reset();
         }
     </script>
+    <!-- Bootstrap JS (para el botón responsive) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
