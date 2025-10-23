@@ -24,5 +24,5 @@ Route::get('/contactanos', function () {
     return view('vistasextras.contactanos');
 })->name('contactanos');
 Route::get('/nosotros', function () {
-    return view('vistasextras.sobrenoso');
+    return view('vistasextra.sobrenoso');
 })->name('nosotros');
